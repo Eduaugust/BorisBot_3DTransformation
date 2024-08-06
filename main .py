@@ -30,6 +30,9 @@ def display():
     # # utils.drawRectangle(3, 4, 1, color=(1, 0, 0), cube_size=0.5)
     # utils.drawOctagon(3, 1, color=(0, 1, 0))
     # glPopMatrix()
+
+    glLoadIdentity()
+    gluLookAt(*utils.eye, *utils.center, *utils.up)
     
     draw_base()
     draw_body()
@@ -67,6 +70,8 @@ def main():
     
     glutDisplayFunc(display)
     glutReshapeFunc(reshape)
+    glutKeyboardFunc(utils.keyboard)
+
     glutMainLoop()
 
 if __name__ == '__main__':
