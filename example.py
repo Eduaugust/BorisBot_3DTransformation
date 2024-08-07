@@ -58,8 +58,8 @@ def reshape(w: int, h: int):
     glViewport(0, 0, w, h)
     glMatrixMode(GL_PROJECTION)
     glLoadIdentity()
-    glFrustum( -1.0, 1.0, -1.0, 1.0, 1.5, 20.0 )
-    # glOrtho(-3, 3, -3, 3, 1.5, 20)
+    # reimplementation.glFrustum( -1.0, 1.0, -1.0, 1.0, 1.5, 20.0 )
+    reimplementation.glOrtho(-3, 3, -3, 3, 1.5, 20)
     glMatrixMode(GL_MODELVIEW)
 
 def main():

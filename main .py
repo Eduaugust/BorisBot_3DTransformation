@@ -6,6 +6,7 @@ from OpenGL.GLU import *
 from base import draw_base
 from body import draw_body
 from arm import draw_arm
+import reimplementation
 import utils
 
 def display():
@@ -51,7 +52,8 @@ def reshape(w: int, h: int):
     glViewport(0, 0, w, h)
     glMatrixMode(GL_PROJECTION)
     glLoadIdentity()
-    glFrustum(-1.0, 1.0, -1.0, 1.0, 1.5, 20.0)
+    reimplementation.glFrustum(-1.0, 1.0, -1.0, 1.0, 1.5, 20.0)
+    # reimplementation.glOrtho(-1.0, 1.0, -1.0, 1.0, 1.5, 20.0)
     glMatrixMode(GL_MODELVIEW)
 
 def main():

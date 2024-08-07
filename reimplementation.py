@@ -50,3 +50,27 @@ def glRotatef(angle, x, y, z):
     
     # Multiplicar a matriz de modelagem atual pela matriz de rotação
     glMultMatrixf(rotation_matrix)
+
+def glFrustum(left, right, bottom, top, near, far):
+    # Criar a matriz de projeção ortográfica
+    frustum_matrix = np.array([
+        [2*near/(right-left), 0, 0, 0],
+        [0, 2*near/(top-bottom), 0, 0],
+        [ (right+left)/(right-left), (top+bottom)/(top-bottom), -(far+near)/(far-near), -2*(far*near)/(far-near) ],
+        [0, 0, -1, 0]
+    ], dtype=np.float32).T
+    
+    # Multiplicar a matriz atual pela matriz de projeção
+    glMultMatrixf(frustum_matrix)
+
+def glOrtho(left, right, bottom, top, near, far):
+    # Criar a matriz de projeção ortográfica
+    ortho_matrix = np.array([
+        [2/(right-left), 0, 0, -(right+left)/(right-left)],
+        [0, 2/(top-bottom), 0, -(top+bottom)/(top-bottom)],
+        [0, 0, -2/(far-near), -(far+near)/(far-near)],
+        [0, 0, 0, 1]
+    ], dtype=np.float32).T
+    
+    # Multiplicar a matriz atual pela matriz de projeção
+    glMultMatrixf(ortho_matrix)
