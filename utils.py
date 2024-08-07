@@ -108,7 +108,9 @@ def drawOctagon(radius: float, height: float, color=(1, 1, 1)):
         glPushMatrix()
         reimplementation.glTranslatef(x_center, y_center, height / 2)
         reimplementation.glRotatef(angle * 180 / math.pi, 0, 0, 1)  # Rotate the rectangle
-        drawRectangle(radius, half_side_length, height, color)  # Adjusted value
+        for i in range(3):
+            reimplementation.glTranslatef(0, 0, 0.1)
+            drawRectangle(radius, half_side_length, height, color)  # Adjusted value
         glPopMatrix()
 
 
