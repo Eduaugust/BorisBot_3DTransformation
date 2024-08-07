@@ -6,7 +6,7 @@ from OpenGL.GLU import *
 from base import draw_base
 from body import draw_body
 from arm import draw_arm
-from head import draw_head
+from linha import draw_bresenham_line_3d
 import reimplementation
 import utils
 
@@ -33,20 +33,8 @@ def display():
     draw_base()
     draw_body()
     draw_arm()  
-    draw_head()
-    # # Desenhar o corpo
-    # glMaterialfv(GL_FRONT, GL_AMBIENT, [0.0, 0.0, 0.0, 1.0])  # Preto
-    # glMaterialfv(GL_FRONT, GL_DIFFUSE, [0.0, 0.0, 0.0, 1.0])  # Preto
-    # glMaterialfv(GL_FRONT, GL_SPECULAR, [0.1, 0.1, 0.1, 1.0]) # Preto mate
-    # glMaterialfv(GL_FRONT, GL_SHININESS, [10.0])  # Menos brilho
-    # draw_body()
-    
-    # Desenhar o braço
-    # glMaterialfv(GL_FRONT, GL_AMBIENT, [0.5, 0.5, 0.5, 1.0])  # Cinza
-    # glMaterialfv(GL_FRONT, GL_DIFFUSE, [0.5, 0.5, 0.5, 1.0])  # Cinza
-    # glMaterialfv(GL_FRONT, GL_SPECULAR, [1.0, 1.0, 1.0, 1.0]) # Branco para brilho
-    # glMaterialfv(GL_FRONT, GL_SHININESS, [100.0])  # Brilho alto para um aspecto mais brilhante
-    # draw_arm()
+
+    # draw_bresenham_line_3d(-1, -1, -1, 1, 1, 1) 
 
     glFlush()
 
