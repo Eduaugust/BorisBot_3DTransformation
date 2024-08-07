@@ -11,7 +11,7 @@ import utils
 
 def display():
     glClearColor(1, 1, 1, 0)
-    glClear(GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT)
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
     
     glEnable(GL_LIGHTING)  # Habilita a iluminação
     glEnable(GL_LIGHT0)    # Habilita a luz 0
@@ -58,11 +58,11 @@ def reshape(w: int, h: int):
 
 def main():
     glutInit()
-    glutInitDisplayMode(GLUT_SINGLE or GLUT_RGB)
+    glEnable(GL_DEPTH_TEST)
+    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH)
     glutInitWindowSize(700, 700)
     glutInitWindowPosition(10, 10)
     glutCreateWindow(b"Robo 3D")
-    glEnable(GL_DEPTH_TEST)
     
     glutDisplayFunc(display)
     glutReshapeFunc(reshape)
