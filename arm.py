@@ -11,7 +11,7 @@ def draw_arm():
     # ARM BASE
     glPushMatrix()
     reimplementation.glTranslatef(0.5, 0, -5)
-    reimplementation.glScalef(0.1, 0.01, -5)
+    reimplementation.glScalef(0.1, 0.01, 0.1)
     glutSolidCube(1)
     glPopMatrix()
 

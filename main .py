@@ -19,7 +19,7 @@ def display():
     light_position = [0, 0, -1, 0]  # Define a posição da luz na direção do observador
     light_ambient = [0.2, 0.2, 0.2, 1.0]  # Cor ambiente da luz
     light_diffuse = [1.0, 1.0, 1.0, 1.0]  # Cor difusa da luz (branco)
-    light_specular = [1.0, 1.0, 1.0, 1.0]  # Cor especular da luz (branco)
+    light_specular = [1.0, 2.0, 1.0, 1.0]  # Cor especular da luz (branco)
     
     glLightfv(GL_LIGHT0, GL_POSITION, light_position)
     glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient)
@@ -31,7 +31,7 @@ def display():
     
     draw_base()
     draw_body()
-    draw_arm()    
+    draw_arm()  
     # # Desenhar o corpo
     # glMaterialfv(GL_FRONT, GL_AMBIENT, [0.0, 0.0, 0.0, 1.0])  # Preto
     # glMaterialfv(GL_FRONT, GL_DIFFUSE, [0.0, 0.0, 0.0, 1.0])  # Preto
@@ -40,11 +40,11 @@ def display():
     # draw_body()
     
     # Desenhar o braço
-    glMaterialfv(GL_FRONT, GL_AMBIENT, [0.5, 0.5, 0.5, 1.0])  # Cinza
-    glMaterialfv(GL_FRONT, GL_DIFFUSE, [0.5, 0.5, 0.5, 1.0])  # Cinza
-    glMaterialfv(GL_FRONT, GL_SPECULAR, [1.0, 1.0, 1.0, 1.0]) # Branco para brilho
-    glMaterialfv(GL_FRONT, GL_SHININESS, [100.0])  # Brilho alto para um aspecto mais brilhante
-    draw_arm()
+    # glMaterialfv(GL_FRONT, GL_AMBIENT, [0.5, 0.5, 0.5, 1.0])  # Cinza
+    # glMaterialfv(GL_FRONT, GL_DIFFUSE, [0.5, 0.5, 0.5, 1.0])  # Cinza
+    # glMaterialfv(GL_FRONT, GL_SPECULAR, [1.0, 1.0, 1.0, 1.0]) # Branco para brilho
+    # glMaterialfv(GL_FRONT, GL_SHININESS, [100.0])  # Brilho alto para um aspecto mais brilhante
+    # draw_arm()
 
     glFlush()
 

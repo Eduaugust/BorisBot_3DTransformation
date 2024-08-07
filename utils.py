@@ -1,8 +1,10 @@
 from OpenGL.GL import *
+from OpenGL.GLU import *
 from OpenGL.GLUT import *
 import math
 
 import reimplementation
+import time
 
 def drawRectangle(length: float, width: float, height: float, color=(1, 1, 1), cube_size=0.1):
     """
@@ -165,6 +167,23 @@ def keyboard(key, x, y):
         up[2] += step
     elif key == b'O':
         up[2] -= step
-        
+    elif key == b'g':
+        for i in range(45):
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+            glLoadIdentity()
+            gluLookAt(*eye, *center, *up)
+            drawRectanglePoints(1, 1, 1)
+            drawOctagon(0.5, 1)
+            glutSwapBuffers()
+            time.sleep(0.01)
+            eye[0] = math.cos(math.radians(i))
+            eye[1] = math.sin(math.radians(i))
+            center[0] = 0
+            center[1] = 0
+            center[2] = 0
+            up[0] = 1.0
+            up[1] = 40.0
+            up[2] = 0.0
+            glutPostRedisplay()
 
     glutPostRedisplay()
