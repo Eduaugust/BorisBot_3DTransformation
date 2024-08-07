@@ -15,7 +15,7 @@ def draw_base():
 
     # DRAW WHEEL 2
     glPushMatrix()
-    reimplementation.glTranslatef(0, -2, -5.5)
+    reimplementation.glTranslatef(0, -2, -4)
     reimplementation.glScalef(0.2, 0.2, -0.2)
     glColor3f(0, 1, 0)
     glutSolidTorus(0.5, 1, 30, 30)
