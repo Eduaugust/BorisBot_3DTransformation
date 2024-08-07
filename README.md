@@ -1,7 +1,7 @@
 # Alunos envolvidos
 - [149349] [Pedro Edom Nunes]
 - [149382] [Eduardo Augusto Duarte Evangelista]
-- [x] []
+- [137913] [Bryan Umpierre Moreira]
 
 # BorisBot_3DTransformation
 
