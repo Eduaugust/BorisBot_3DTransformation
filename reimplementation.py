@@ -4,11 +4,11 @@ import numpy as np
 def glTranslatef(x, y, z):
     # Criar a matriz de translação
     translation_matrix = np.array([
-        [1.0, 0.0, 0.0, 0.0],
-        [0.0, 1.0, 0.0, 0.0],
-        [0.0, 0.0, 1.0, 0.0],
-        [x,   y,   z,   1.0]
-    ], dtype=np.float32)
+        [1.0, 0.0, 0.0, x],
+        [0.0, 1.0, 0.0, y],
+        [0.0, 0.0, 1.0, z],
+        [0.0, 0.0, 0.0,   1.0]
+    ], dtype=np.float32).T
     
     glMultMatrixf(translation_matrix)
 
