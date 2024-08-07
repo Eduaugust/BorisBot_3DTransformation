@@ -6,7 +6,6 @@ from OpenGL.GLU import *
 from base import draw_base
 from body import draw_body
 from arm import draw_arm
-from linha import draw_bresenham_line_3d
 import reimplementation
 import utils
 
