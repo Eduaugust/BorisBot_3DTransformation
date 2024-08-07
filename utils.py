@@ -8,6 +8,12 @@ import numpy as np
 import reimplementation
 import time
 
+step =0.1
+eye = [.0, .0, 10.0]
+center = [.0, .0, .0]
+up = [1.0, 40.0, .0]
+rotation = 0
+
 def drawRectangle(length: float, width: float, height: float, color=(1, 1, 1), cube_size=0.1):
     """
     Draws a rectangle using smaller cubes.
@@ -114,7 +120,7 @@ def drawOctagon(radius: float, height: float, color=(1, 1, 1)):
         reimplementation.glRotatef(angle * 180 / math.pi, 0, 0, 1)  # Rotate the rectangle
         for i in range(3):
             reimplementation.glTranslatef(0, 0, 0.1)
-            drawRectangle(radius, half_side_length, height, color)  # Adjusted value
+            drawRectanglePoints(radius, half_side_length, height, color)  # Adjusted value
         glPopMatrix()
 
 def calculate_normal(v1, v2, v3):
@@ -127,14 +133,12 @@ def calculate_normal(v1, v2, v3):
     normal = normal / np.linalg.norm(normal)
     return normal
 
-
-step =0.1
-eye = [.0, .0, 1.0]
-center = [.0, .0, .0]
-up = [1.0, 40.0, .0]
+def get_rotation():
+    global rotation
+    return rotation
 
 def keyboard(key, x, y):
-    global eye, center, up, step
+    global eye, center, up, step, rotation
     if key == b'p':
         print(f"eye: {eye}, center: {center}, up: {up}")
     elif key == b'+':
@@ -184,18 +188,13 @@ def keyboard(key, x, y):
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
             glLoadIdentity()
             gluLookAt(*eye, *center, *up)
+            glRotatef(i, 0, 0, 1)  # Rotate the object
             drawRectanglePoints(1, 1, 1)
             drawOctagon(0.5, 1)
             glutSwapBuffers()
             time.sleep(0.01)
-            eye[0] = math.cos(math.radians(i))
-            eye[1] = math.sin(math.radians(i))
-            center[0] = 0
-            center[1] = 0
-            center[2] = 0
-            up[0] = 1.0
-            up[1] = 40.0
-            up[2] = 0.0
             glutPostRedisplay()
+    elif key == b'r':
+        rotation += step
 
     glutPostRedisplay()
