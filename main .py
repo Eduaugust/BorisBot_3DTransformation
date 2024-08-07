@@ -6,6 +6,7 @@ from OpenGL.GLU import *
 from base import draw_base
 from body import draw_body
 from arm import draw_arm
+from head import draw_head
 import reimplementation
 import utils
 
@@ -32,6 +33,7 @@ def display():
     draw_base()
     draw_body()
     draw_arm()  
+    draw_head()
     # # Desenhar o corpo
     # glMaterialfv(GL_FRONT, GL_AMBIENT, [0.0, 0.0, 0.0, 1.0])  # Preto
     # glMaterialfv(GL_FRONT, GL_DIFFUSE, [0.0, 0.0, 0.0, 1.0])  # Preto

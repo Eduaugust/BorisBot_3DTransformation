@@ -3,6 +3,8 @@ from OpenGL.GLU import *
 from OpenGL.GLUT import *
 import math
 
+import numpy as np
+
 import reimplementation
 import time
 
@@ -114,6 +116,16 @@ def drawOctagon(radius: float, height: float, color=(1, 1, 1)):
             reimplementation.glTranslatef(0, 0, 0.1)
             drawRectangle(radius, half_side_length, height, color)  # Adjusted value
         glPopMatrix()
+
+def calculate_normal(v1, v2, v3):
+    # Vetores do triângulo
+    vec1 = v2 - v1
+    vec2 = v3 - v1
+    # Produto vetorial
+    normal = np.cross(vec1, vec2)
+    # Normalizar o vetor
+    normal = normal / np.linalg.norm(normal)
+    return normal
 
 
 step =0.1
