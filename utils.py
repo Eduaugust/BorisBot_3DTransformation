@@ -2,6 +2,8 @@ from OpenGL.GL import *
 from OpenGL.GLUT import *
 import math
 
+import reimplementation
+
 def drawRectangle(length: float, width: float, height: float, color=(1, 1, 1), cube_size=0.1):
     """
     Draws a rectangle using smaller cubes.
@@ -27,7 +29,7 @@ def drawRectangle(length: float, width: float, height: float, color=(1, 1, 1), c
 
             # Desenha o cubo
             glPushMatrix()
-            glTranslatef(x, y, z)
+            reimplementation.glTranslatef(x, y, z)
             glColor3f(*color)
             glutSolidCube(cube_size)
             glPopMatrix()
@@ -104,8 +106,8 @@ def drawOctagon(radius: float, height: float, color=(1, 1, 1)):
 
         # Draw the rectangle
         glPushMatrix()
-        glTranslatef(x_center, y_center, height / 2)
-        glRotatef(angle * 180 / math.pi, 0, 0, 1)  # Rotate the rectangle
+        reimplementation.glTranslatef(x_center, y_center, height / 2)
+        reimplementation.glRotatef(angle * 180 / math.pi, 0, 0, 1)  # Rotate the rectangle
         drawRectangle(radius, half_side_length, height, color)  # Adjusted value
         glPopMatrix()
 

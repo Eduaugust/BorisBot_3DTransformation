@@ -1,6 +1,8 @@
 from OpenGL.GL import * # type: ignore
 from OpenGL.GLUT import * # type: ignore
-from OpenGL.GLU import * # type: ignore
+from OpenGL.GLU import *
+
+import reimplementation # type: ignore
 
 def display():
     glClearColor(1, 1, 1, 0)
@@ -33,19 +35,19 @@ def display():
     glColor3f(0, 0, 0)
     glLoadIdentity()
     glPushMatrix()
-    glTranslatef(0, 0, -3)
+    reimplementation.glTranslatef(0, 0, -3)
     glutWireCube(1)
     glPopMatrix()
     glPushMatrix()
-    glTranslatef(2, 0, -3)
+    reimplementation.glTranslatef(2, 0, -3)
     glutWireCube(1)
     glPopMatrix()
     glPushMatrix()
-    glTranslatef(-2, 0, -3)
+    reimplementation.glTranslatef(-2, 0, -3)
     glutWireCube(1)
     glPopMatrix()
     glPushMatrix()
-    glTranslate(0, 0, -6)
+    reimplementation.glTranslatef(0, 0, -6)
     glNormal3f(0, 0, 1)
     glutWireSphere(1, 1000, 1000)
     glPopMatrix()
